@@ -1,33 +1,28 @@
-alfred/Alfred.alfredpreferences/workflows
-chatgpt-cli/history
-chatgpt-cli/secret.yaml
-chatgpt-cli/session-history
-conda/.anaconda
-conda/.conda
-conda/.continuum
-conda/Anaconda*
-dropbox
-iterm2/AppSupport
-ipython
-jupyter
-npm
-redhat/.redhat/anonymousId
-ssh/id*
-ssh/known*
-thinkorswim
-tmux/plugins
-vscode/.vscode
-zsh/.zcompdump
-zsh/plugins
+# Project
+.env
 
+# Python-generated files
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+*__pycache__
+
+# Virtual environments
+.venv
+
+# Databases
+*.sqlite3
 *.sock
+
+# Workspace Configs
 .DS_Store
 *.code-workspace
-*__pycache__
 
 # Swap
 [._]*.s[a-v][a-z]
-!*.svg  # comment out if you don't need vector files
+!*.svg
 [._]*.sw[a-p]
 [._]s[a-rt-v][a-z]
 [._]ss[a-gi-z]
@@ -41,9 +36,15 @@ Sessionx.vim
 .netrwhist
 *.bak
 *~
+
+# Logs
+*.log
+
 # Auto-generated tag files
 tags
+
 # Persistent undo
 [._]*.un~
 
-Icon[^M]
+# Folder icon
+/Icon[^M]
