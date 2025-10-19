@@ -4,6 +4,14 @@
 .env*
 
 # =========================
+# Lua / Build Artifacts
+# =========================
+*.luac
+luac.out
+lua_modules/
+.luarocks/
+
+# =========================
 # System Files
 # =========================
 .DS_Store
@@ -53,4 +61,4 @@ Sessionx.vim
 # Logs & Tags
 # =========================
 *.log
-tags._]*.un~
+tags

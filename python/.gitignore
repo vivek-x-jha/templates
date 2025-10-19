@@ -4,6 +4,22 @@
 .env*
 
 # =========================
+# Python / Build Artifacts
+# =========================
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# SQLite databases
+*.sqlite3
+
+# =========================
 # System Files
 # =========================
 .DS_Store
@@ -47,10 +63,10 @@ Sessionx.vim
 .netrwhist
 *.bak
 *~
-[._]*.un~
 
 # =========================
 # Logs & Tags
 # =========================
 *.log
-tags._]*.un~
+tags
+[._]*.un~~

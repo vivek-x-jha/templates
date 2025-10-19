@@ -4,20 +4,42 @@
 .env*
 
 # =========================
+# Node / Build Artifacts
+# =========================
+node_modules/
+bower_components/
+build/
+dist/
+coverage/
+.nyc_output/
+.next/
+.nuxt/
+out/
+storybook-static/
+
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# =========================
 # System Files
 # =========================
 .DS_Store
 Thumbs.db
 /Icon[^M]
+.idea/
+.vscode/
+*.code-workspace
 
 # =========================
 # Editor / IDE Settings
 # =========================
+.eslintcache
+.cache/
+.parcel-cache/
 Session.vim
 Sessionx.vim
-.vscode/
-.idea/
-*.code-workspace
 
 # =========================
 # Archives
@@ -25,6 +47,7 @@ Sessionx.vim
 *.zip
 *.tar
 *.tar.gz
+*.tgz
 
 # =========================
 # Runtime Sockets
@@ -47,10 +70,15 @@ Sessionx.vim
 .netrwhist
 *.bak
 *~
-[._]*.un~
 
 # =========================
 # Logs & Tags
 # =========================
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
 *.log
-tags._]*.un~
+tags
+[._]*.un~
