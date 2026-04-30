@@ -63,10 +63,10 @@ Sessionx.vim
 .netrwhist
 *.bak
 *~
+[._]*.un~
 
 # =========================
 # Logs & Tags
 # =========================
 *.log
 tags
-[._]*.un~~

@@ -70,6 +70,7 @@ Sessionx.vim
 .netrwhist
 *.bak
 *~
+[._]*.un~
 
 # =========================
 # Logs & Tags
@@ -81,4 +82,3 @@ pnpm-debug.log*
 lerna-debug.log*
 *.log
 tags
-[._]*.un~
