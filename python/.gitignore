@@ -7,7 +7,7 @@
 # Python / Build Artifacts
 # =========================
 __pycache__/
-*.py[oc]
+*.py[cod]
 .ipynb_checkpoints/
 build/
 dist/
