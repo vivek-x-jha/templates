@@ -1,0 +1,4 @@
+interface:
+  display_name: "Bootstrap Project"
+  short_description: "Initialize projects from local machine templates"
+  default_prompt: "Bootstrap this project using the matching files from the local templates repository."

@@ -4,23 +4,19 @@
 .env*
 
 # =========================
-# Python / Build Artifacts
+# LaTeX Build Artifacts
 # =========================
-__pycache__/
-*.py[cod]
-.ipynb_checkpoints/
-.pytest_cache/
-.ruff_cache/
-build/
-dist/
-wheels/
-*.egg-info
-
-# Virtual environments
-.venv
-
-# SQLite databases
-*.sqlite3
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.lof
+*.log
+*.lot
+*.out
+*.synctex.gz
+*.toc
 
 # =========================
 # System Files
@@ -69,7 +65,6 @@ Sessionx.vim
 [._]*.un~
 
 # =========================
-# Logs & Tags
+# Tags
 # =========================
-*.log
 tags
