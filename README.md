@@ -15,7 +15,8 @@ Drop-in starter packs for common tooling and language setups live in the sibling
 - `.ruff.toml` favors single quotes and a 150-character line length out of the box.
 
 ### Node (`node/`)
-- `.eslintrc.json` sets up an ES2022-ready ESLint configuration with the recommended rules.
+- `eslint.config.mjs` sets up a modern ESLint flat configuration with the recommended JavaScript rules.
+- Install its dependencies with `npm install --save-dev eslint @eslint/js globals`.
 - `.gitignore` ignores dependency directories, build outputs, logs, and environment files.
 
 ### Lua (`lua/`)
@@ -40,8 +41,7 @@ Drop-in starter packs for common tooling and language setups live in the sibling
 - `markdown.md` is a Markdown feature sampler you can adapt into READMEs or style guides.
 
 ### Tmux (`tmux/`)
-- `plugin.tmux` bootstraps tmux plugin manager bindings and auto-detects an XDG-friendly plugin path.
+- `plugin.tmux` launches tmux plugin manager from an XDG-friendly plugin path and reports when TPM is not installed.
 
 ## Repo Extras
 - `.gitignore` at the root keeps template-only helpers (sessions, archives, logs) out of version control.
-- `Session.vim` restores an editor session for quickly browsing every template file (handy when crafting new stacks).

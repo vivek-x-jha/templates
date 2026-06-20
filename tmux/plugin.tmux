@@ -1,82 +1,21 @@
 #!/usr/bin/env bash
 
-CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-BINDINGS_DIR="$CURRENT_DIR/bindings"
-SCRIPTS_DIR="$CURRENT_DIR/scripts"
+set -u
 
-source "$SCRIPTS_DIR/variables.sh"
+xdg_tmux_dir="${XDG_CONFIG_HOME:-$HOME/.config}/tmux"
+default_tpm_path="$HOME/.tmux/plugins"
 
-get_tmux_option() {
-	local option="$1"
-	local default_value="$2"
-	local option_value="$(tmux show-option -gqv "$option")"
-	if [ -z "$option_value" ]; then
-		echo "$default_value"
-	else
-		echo "$option_value"
-	fi
-}
+if [[ -f "$xdg_tmux_dir/tmux.conf" ]]; then
+	default_tpm_path="$xdg_tmux_dir/plugins"
+fi
 
-tpm_path_set() {
-	tmux show-environment -g "$DEFAULT_TPM_ENV_VAR_NAME" >/dev/null 2>&1
-}
+tpm_path="${TMUX_PLUGIN_MANAGER_PATH:-$default_tpm_path}"
+tpm_entrypoint="$tpm_path/tpm/tpm"
 
-# Check if configuration file exists at an XDG-compatible location, if so use
-# that directory for TMUX_PLUGIN_MANAGER_PATH. Otherwise use $DEFAULT_TPM_PATH.
-set_default_tpm_path() {
-	local xdg_tmux_path="${XDG_CONFIG_HOME:-$HOME/.config}/tmux"
-	local tpm_path="$DEFAULT_TPM_PATH"
+tmux set-environment -g TMUX_PLUGIN_MANAGER_PATH "$tpm_path"
 
-	if [ -f "$xdg_tmux_path/tmux.conf" ]; then
-		tpm_path="$xdg_tmux_path/plugins/"
-	fi
-
-	tmux set-environment -g "$DEFAULT_TPM_ENV_VAR_NAME" "$tpm_path"
-}
-
-# Ensures TMUX_PLUGIN_MANAGER_PATH global env variable is set.
-#
-# Put this in `.tmux.conf` to override the default:
-# `set-environment -g TMUX_PLUGIN_MANAGER_PATH "/some/other/path/"`
-set_tpm_path() {
-	if ! tpm_path_set; then
-		set_default_tpm_path
-	fi
-}
-
-# 1. Fetches plugin names from `@plugin` variables
-# 2. Creates full plugin path
-# 3. Sources all *.tmux files from each of the plugin directories
-#	 - no errors raised if directory does not exist
-# Files are sourced as tmux config files, not as shell scripts!
-source_plugins() {
-	"$SCRIPTS_DIR/source_plugins.sh" >/dev/null 2>&1
-}
-
-# prefix + I - downloads TPM plugins and reloads TMUX environment
-# prefix + U - updates a plugin (or all of them) and reloads TMUX environment
-# prefix + alt + u - remove unused TPM plugins and reloads TMUX environment
-set_tpm_key_bindings() {
-	local install_key="$(get_tmux_option "$install_key_option" "$default_install_key")"
-	tmux bind-key "$install_key" run-shell "$BINDINGS_DIR/install_plugins"
-
-	local update_key="$(get_tmux_option "$update_key_option" "$default_update_key")"
-	tmux bind-key "$update_key" run-shell "$BINDINGS_DIR/update_plugins"
-
-	local clean_key="$(get_tmux_option "$clean_key_option" "$default_clean_key")"
-	tmux bind-key "$clean_key" run-shell "$BINDINGS_DIR/clean_plugins"
-}
-
-supported_tmux_version_ok() {
-	"$SCRIPTS_DIR/check_tmux_version.sh" "$SUPPORTED_TMUX_VERSION"
-}
-
-main() {
-	if supported_tmux_version_ok; then
-		set_tpm_path
-		set_tpm_key_bindings
-		source_plugins
-	fi
-}
-main
-
+if [[ -x "$tpm_entrypoint" ]]; then
+	"$tpm_entrypoint"
+else
+	tmux display-message "TPM not found at $tpm_entrypoint"
+fi

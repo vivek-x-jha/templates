@@ -2,7 +2,7 @@
 
 set -eu
 
-script_dir=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+script_dir=$(CDPATH='' cd -- "$(dirname -- "$0")" && pwd)
 codex_home=${CODEX_HOME:-"$HOME/.codex"}
 skills_dir="$codex_home/skills"
 skill_source="$script_dir/skills/bootstrap-project"
