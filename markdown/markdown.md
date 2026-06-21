@@ -169,7 +169,7 @@ _This is italic text_
 - [ ] Open a pull request
 - [x] @mentions, #refs, [links](), **formatting**, and <del>tags</del> supported
 - [x] list syntax required (any unordered or ordered list supported)
-- [ ] this is a complete item
+- [x] this is a complete item
 - [ ] this is an incomplete item
 
 ------
@@ -195,7 +195,7 @@ Let's rename \*our-new-project\* to \*our-old-project\*.
 
 [I'm a reference-style link][Arbitrary case-insensitive reference text]
 
-[I'm a relative reference to a repository file](../blob/master/LICENSE)
+[I'm a relative reference to a repository file](../docs/LICENSE)
 
 [You can use numbers for reference-style link definitions][1]
 
@@ -218,7 +218,7 @@ Some text to show that the reference links can follow later.
 
 [I'm a reference-style link][Arbitrary case-insensitive reference text]
 
-[I'm a relative reference to a repository file](../blob/master/LICENSE)
+[I'm a relative reference to a repository file](../docs/LICENSE)
 
 [You can use numbers for reference-style link definitions][1]
 
