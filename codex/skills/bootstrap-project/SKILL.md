@@ -1,6 +1,6 @@
 ---
 name: bootstrap-project
-description: Initialize or scaffold a new project using the local templates repository. Use when starting a project, creating a repository, adding baseline project configuration, or setting up Python, Node, Lua, or LaTeX tooling. Inspect and reuse the matching local template before creating configuration files from scratch.
+description: Initialize or scaffold a new project using the local templates repository. Use when starting a project, creating a repository, adding baseline project configuration, or setting up Python, Node, Lua, Rust, or LaTeX tooling. Inspect and reuse the matching local template before creating configuration files from scratch.
 ---
 
 # Bootstrap Project
@@ -17,6 +17,7 @@ Use `$TEMPLATES_HOME` as the source of truth for reusable project configuration.
    - Python: `python/`
    - Node: `node/`
    - Lua: `lua/`
+   - Rust: `rust/`
    - LaTeX: `latex/`
 3. Compare template files with existing project files before applying them.
 4. Copy files that do not exist. Merge relevant settings into existing files instead of replacing them.

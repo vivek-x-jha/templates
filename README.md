@@ -23,12 +23,15 @@ Drop-in starter packs for common tooling and language setups live in the sibling
 - `.editorconfig` standardizes two-space indentation for Lua code.
 - `stylua.toml` mirrors the editor defaults with StyLua-specific preferences and sorted `require` statements.
 
+### Rust (`rust/`)
+- `.gitignore` ignores Cargo's repository-root `/target/` build output plus common local/editor artifacts.
+
 ### LaTeX (`latex/`)
 - `.gitignore` filters latexmk and common LaTeX build artifacts while retaining generated PDFs.
 
 ### Codex (`codex/`)
 - `skills/bootstrap-project/` teaches Codex to inspect and merge the matching local template when starting a project.
-- `install.sh` links the skill into `$CODEX_HOME/skills` and adds the global project-template guidance to `$CODEX_HOME/AGENTS.md`.
+- `install.sh` links repo-managed Codex skills plus personal dotfiles skills into `$CODEX_HOME/skills` and adds global guidance to `$CODEX_HOME/AGENTS.md`.
 - Activate it with `./codex/install.sh` after cloning or updating this repository.
 
 ### Git Hygiene (`git/`)
