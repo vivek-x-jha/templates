@@ -2,6 +2,18 @@
 # Project-Specific
 # =========================
 .env*
+*.pem
+
+# =========================
+# JavaScript / Web Apps
+# =========================
+node_modules/
+.next/
+out/
+build/
+dist/
+.vercel/
+*.tsbuildinfo
 
 # =========================
 # System Files
